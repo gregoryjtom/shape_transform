@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <left>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="5.0" left="12.0" right="12.0" top="5.0" />
+         </padding>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Scale" />
+            <TextField fx:id="textField" onAction="#scaleRect" prefHeight="30.0" prefWidth="40.0" text="100" />
+            <Slider fx:id="slider" max="200.0" min="50.0" minorTickCount="0" orientation="VERTICAL" showTickLabels="true" value="100" />
+            <Button fx:id="upBtn" mnemonicParsing="false" onAction="#translateUp" prefWidth="55.0" text="Up" />
+            <Button fx:id="downBtn" mnemonicParsing="false" onAction="#translateDown" prefWidth="55.0" text="Down" />
+            <Button fx:id="leftBtn" mnemonicParsing="false" onAction="#translateLeft" prefWidth="55.0" text="Left" />
+            <Button fx:id="rightBtn" mnemonicParsing="false" onAction="#translateRight" prefWidth="55.0" text="Right" />
+         </children></VBox>
+   </left>
+   <bottom>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <HBox spacing="10.0" AnchorPane.leftAnchor="5.0">
+               <padding>
+                  <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
+               </padding>
+               <children>
+                  <Button fx:id="btnLeft" mnemonicParsing="false" onAction="#rotateRectLeft" text="Rotate Left (L)" />
+                  <Button fx:id="btnRight" mnemonicParsing="false" onAction="#rotateRectRight" text="Rotate Right (R)" />
+               </children></HBox>
+            <HBox spacing="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <padding>
+                  <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
+               </padding>
+               <fx:define>
+                  <ToggleGroup fx:id="toggleGroup" />
+               </fx:define>
+               <children>
+                  <RadioButton fx:id="rb1" mnemonicParsing="false" onAction="#setRectColor" selected="true" text="Blue" toggleGroup="$toggleGroup" userData="Color.DODGERBLUE" />
+                  <RadioButton fx:id="rb2" mnemonicParsing="false" onAction="#setRectColor" text="Magenta" toggleGroup="$toggleGroup" userData="Color.MAGENTA" />
+                  <RadioButton fx:id="rb3" mnemonicParsing="false" onAction="#setRectColor" text="Cyan" toggleGroup="$toggleGroup" userData="Color.CYAN" />
+                  <RadioButton fx:id="rb4" mnemonicParsing="false" onAction="#setRectColor" text="Gold" toggleGroup="$toggleGroup" userData="Color.GOLD" />
+                  <RadioButton fx:id="rb5" mnemonicParsing="false" onAction="#setRectColor" text="Lime" toggleGroup="$toggleGroup" userData="Color.LIME" />
+               </children>
+            </HBox>
+         </children></AnchorPane>
+   </bottom>
+   <center>
+      <StackPane id="stackPane" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" onMouseClicked="#setDefault" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+            <Text fx:id="text" rotate="${rect.rotate}" scaleX="${rect.scaleX}" scaleY="${rect.scaleY}" strokeType="OUTSIDE" strokeWidth="0.0" text="Greg Tom" translateX="${rect.translateX}" translateY="${rect.translateY}" />
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

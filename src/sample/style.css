@@ -1,0 +1,33 @@
+
+VBox {
+    -fx-background-color: #bab3b4;
+}
+
+
+AnchorPane{
+    -fx-background-color: #a35d3c;
+}
+
+
+#stackPane{
+    -fx-background-color: #ebe4e4;
+}
+
+
+Button{
+    -fx-font: normal 10pt "Calibri";
+}
+
+RadioButton{
+    -fx-font: normal 10pt "Calibri";
+}
+
+Text{
+    -fx-font-family:"Calibri";
+}
+
+TextField{
+   -fx-font-family: "Calibri";
+}
+
+
